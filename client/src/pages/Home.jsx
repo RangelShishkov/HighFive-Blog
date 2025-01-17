@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import MainCategories from "../components/MainCategories";
+import FeaturedPosts from "../components/FeaturedPosts";
+
 const Home = () => {
   return (
     <div className="mt-4 flex flex-col gap-4">
@@ -53,6 +55,8 @@ const Home = () => {
       </div>
       {/* CATEGORIES */}
       <MainCategories />
+      {/* POSTS */}
+      <FeaturedPosts />
     </div>
   );
 };
