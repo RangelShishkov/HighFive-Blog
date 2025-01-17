@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import MainCategories from "../components/MainCategories";
 const Home = () => {
   return (
     <div className="mt-4 flex flex-col gap-4">
@@ -27,7 +28,6 @@ const Home = () => {
             width="200"
             height="200"
             className="text-lg tracking-widest" //add animate-spin animatedButton for rotation
-
           >
             <path
               id="circlePath"
@@ -51,6 +51,8 @@ const Home = () => {
           </button>
         </Link>
       </div>
+      {/* CATEGORIES */}
+      <MainCategories />
     </div>
   );
 };
