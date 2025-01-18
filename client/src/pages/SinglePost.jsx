@@ -2,6 +2,7 @@ import Image from "../components/Image";
 import { Link } from "react-router-dom";
 import PostMenuActions from "../components/PostMenuActions";
 import Search from "../components/Search";
+import Comments from "../components/Comments";
 
 const SinglePost = () => {
   return (
@@ -154,6 +155,7 @@ const SinglePost = () => {
           <Search />
         </div>
       </div>
+      <Comments />
     </div>
   );
 };
