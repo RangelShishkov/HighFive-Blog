@@ -25,7 +25,7 @@ const Home = () => {
             voluptatibus facere earum?
           </p>
         </div>
-        <Link to="write" className="hidden md:block relative">
+        <Link to="create" className="hidden md:block relative">
           <svg
             viewBox="0 0 200 200"
             width="200"
