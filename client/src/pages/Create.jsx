@@ -1,6 +1,6 @@
 import { useUser } from "@clerk/clerk-react";
 import "react-quill-new/dist/quill.snow.css";
-// import ReactQuill from "react-quill-new";
+import ReactQuill from "react-quill-new";
 
 const Create = () => {
   const { isLoaded, isSignedIn } = useUser();
@@ -33,7 +33,7 @@ const Create = () => {
           id=""
           className="p-4 rounded-xl bg-white shadow-md"
         />
-        {/* <ReactQuill theme="snow" className="flex-1 rounded-xl bg-white shadow-md"/> */}
+        <ReactQuill theme="snow" className="flex-1 rounded-xl bg-white shadow-md"/>
         <button className="bg-yellow-400 text-white font-medium rounded-xl mt-4 p-2 w-36">Create</button>
       </form>
     </div>

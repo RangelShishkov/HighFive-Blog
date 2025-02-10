@@ -4,8 +4,13 @@ import userRouter from "./routes/user.route.js";
 import postRouter from "./routes/post.route.js";
 import commentRouter from "./routes/comment.route.js";
 import webHookRouter from "./routes/webhook.route.js";
+import { clerkMiddleware, requireAuth } from "@clerk/express";
+import cors from "cors"
 
 const app = express();
+
+app.use(cors(process.env.CLIENT_URL))
+app.use(clerkMiddleware())
 app.use("/webhooks", webHookRouter);
 
 app.use(express.json());
@@ -14,10 +19,32 @@ app.get("/home", (req, res) => {
   res.status(200).send("Hello!");
 });
 
+// app.get("/auth-state",(req,res)=>{
+//   const authState = req.auth
+//   res.json(authState)
+// })
+
+// app.get("/protect",(req,res)=>{
+//   const {userId} = req.auth;
+//   if(!userId){
+//     return res.status(401).json("Not authenticated")
+//   }
+//   res.status(200).json("Successfully authenticated")
+// })
+
+// app.get("/protect2",requireAuth(),(req,res)=>{
+//   const {userId} = req.auth;
+//   if(!userId){
+//     return res.status(401).json("Not authenticated")
+//   }
+//   res.status(200).json("Successfully authenticated")
+// })
+
 app.use("/users", userRouter);
 app.use("/posts", postRouter);
 app.use("/comments", commentRouter);
 
+//EXPRESS 5 ERROR HANDLING
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
@@ -25,7 +52,7 @@ app.use((error, req, res, next) => {
     status: error.status,
     stack: error.stack,
   });
-}); //EXPRESS 5 ERROR HANDLING
+}); 
 
 app.listen(3030, () => {
   connectDB();

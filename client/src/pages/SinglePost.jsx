@@ -4,6 +4,8 @@ import PostMenuActions from "../components/PostMenuActions";
 import Search from "../components/Search";
 import Comments from "../components/Comments";
 
+
+
 const SinglePost = () => {
   return (
     <div className="flex flex-col gap-8">
@@ -125,10 +127,10 @@ const SinglePost = () => {
             <p className="text-sm text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
             <div className="flex gap-2">
               <Link>
-                <Image src="ig" />
+              <Image src="instagram-logo" w={30}/>
               </Link>
               <Link>
-                <Image src="yt" />
+                <Image src="youtube-logo" w={30}/>
               </Link>
             </div>
           </div>
