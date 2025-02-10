@@ -3,8 +3,11 @@ import connectDB from "./lib/connectDB.js";
 import userRouter from "./routes/user.route.js";
 import postRouter from "./routes/post.route.js";
 import commentRouter from "./routes/comment.route.js";
+import webHookRouter from "./routes/webhook.route.js";
 
 const app = express();
+app.use("/webhooks", webHookRouter);
+
 app.use(express.json());
 
 app.get("/home", (req, res) => {
@@ -22,7 +25,7 @@ app.use((error, req, res, next) => {
     status: error.status,
     stack: error.stack,
   });
-});
+}); //EXPRESS 5 ERROR HANDLING
 
 app.listen(3030, () => {
   connectDB();
