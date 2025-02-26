@@ -14,7 +14,7 @@ const fetchPost = async (slug) => {
 };
 const SinglePost = () => {
   const { slug } = useParams();
-  console.log(slug);
+ 
 
   const { isPending, error, data } = useQuery({
     queryKey: ["post", slug],
@@ -173,7 +173,7 @@ const SinglePost = () => {
           <Search />
         </div>
       </div>
-      <Comments />
+      <Comments postId={data._id} />
     </div>
   );
 };
