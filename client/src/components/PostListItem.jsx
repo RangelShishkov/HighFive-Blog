@@ -3,6 +3,7 @@ import Image from "./Image";
 import { format } from "timeago.js";
 
 const PostListItem = ({ post }) => {
+
   return (
     <div className="flex flex-col xl:flex-row gap-8 mb-8">
       {/* Image */}
@@ -13,7 +14,7 @@ const PostListItem = ({ post }) => {
       )}
       {/* Details */}
       <div className="flex flex-col gap-4 xl:w-2/3">
-        <Link to="/test" className="text-4xl font-semibold">
+        <Link to={`/${post.slug}`} className="text-4xl font-semibold">
           {post.title}
         </Link>
         <div className="flex items-center gap-2 text-gray-800 text-sm">

@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <Create />,
       },
       {
-        path: "/:car",
+        path: "/:slug",
         element: <SinglePost />,
       },
       {
