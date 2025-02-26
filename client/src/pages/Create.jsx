@@ -18,11 +18,14 @@ const Create = () => {
 
   useEffect(() => {
     img && setValue((prev) => prev + `<p><image src="${img.url}/></p>"`);
-  },[img]);
+  }, [img]);
 
   useEffect(() => {
-    video && setValue((prev) => prev + `<p><iframe class="ql-video" src="${video.url}/></p>"`);
-  },[video]);
+    video &&
+      setValue(
+        (prev) => prev + `<p><iframe class="ql-video" src="${video.url}/></p>"`
+      );
+  }, [video]);
 
   const navigate = useNavigate();
 
@@ -56,7 +59,7 @@ const Create = () => {
     const formData = new FormData(e.target);
 
     const data = {
-      img:cover.filePath || "",
+      img: cover.filePath || "",
       title: formData.get("title"),
       category: formData.get("category"),
       desc: formData.get("desc"),
@@ -123,7 +126,7 @@ const Create = () => {
             className="flex-1 rounded-xl bg-white shadow-md"
             value={value}
             onChange={setValue}
-            readOnly={(0 < progress && progress < 100)}
+            readOnly={0 < progress && progress < 100}
           />
         </div>
         <button

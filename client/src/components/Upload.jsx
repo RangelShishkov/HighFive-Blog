@@ -47,7 +47,6 @@ const Upload = ({ children, type, setProgress, setData }) => {
       urlEndpoint={`${import.meta.env.VITE_IK_URL_ENDPOINT}`}
       authenticator={authenticator}
     >
-      <p>Uload an image</p>
       <IKUpload
         useUniqueFileName
         onError={onError}
