@@ -17,7 +17,7 @@ export const addComment = async (req, res) => {
     return res.status(401).json("Not Authenticated!");
   }
 
-  const user = User.findOne({ clerkUserId });
+  const user = await User.findOne({ clerkUserId });
 
   const newComment = new Comment({
     ...req.body,
@@ -26,7 +26,10 @@ export const addComment = async (req, res) => {
   });
 
   const savedComment = await newComment.save();
-  res.status(201).json(savedComment);
+
+  setTimeout(() => {
+    res.status(201).json(savedComment);
+  }, 3000);
 };
 
 export const deleteComment = async (req, res) => {
