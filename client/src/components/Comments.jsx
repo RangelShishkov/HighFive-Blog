@@ -2,7 +2,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Comment from "./Comment";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
 import { useAuth, useUser } from "@clerk/clerk-react";
 
 const fetchComments = async (postId) => {
@@ -90,7 +89,7 @@ const Comments = ({ postId }) => {
           )}
 
           {data.map((comment) => (
-            <Comment key={comment._id} comment={comment} />
+            <Comment key={comment._id} comment={comment} postId={postId} />
           ))}
         </>
       )}
