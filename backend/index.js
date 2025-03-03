@@ -9,13 +9,14 @@ import cors from "cors";
 
 const app = express();
 
-const corsOptions = {
-  origin: process.env.CLIENT_URL, 
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-};
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 
-app.use(cors(corsOptions));
+app.options("*", cors());
 
 app.use(clerkMiddleware());
 
