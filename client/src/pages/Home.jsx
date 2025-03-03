@@ -30,7 +30,7 @@ const Home = () => {
             viewBox="0 0 200 200"
             width="200"
             height="200"
-            className="text-lg tracking-widest" //add animate-spin animatedButton for rotation
+            className="text-lg tracking-widest animate-spin animatedButton" 
           >
             <path
               id="circlePath"
