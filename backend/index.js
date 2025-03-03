@@ -9,25 +9,23 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors(process.env.CLIENT_URL));
-app.use(clerkMiddleware());
-app.use("/webhooks", webHookRouter);
+const corsOptions = {
+  origin: process.env.CLIENT_URL, 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+};
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+app.use(cors(corsOptions));
+
+app.use(clerkMiddleware());
+
+app.use("/webhooks", webHookRouter);
 
 app.use(express.json());
 
 app.get("/home", (req, res) => {
   res.status(200).send("Hello!");
 });
-
 
 //PROTECTED ROUTES
 
